@@ -63,10 +63,12 @@ public class ClienteServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            String dto="Que onda funciono el get";  
-            System.out.println(dto);
-            response.getWriter().print(dto);
-            request.setAttribute(dto, dto);
+            String Rut = request.getParameter("rut");
+            String dv  = request.getParameter("dv");
+            List<Cliente>datos= cli.BuscarCliente(Rut,dv);
+            for (Cliente clientes :datos) {            
+            response.getWriter().print(clientes);
+            };            
     }
 
     /**
@@ -79,13 +81,10 @@ public class ClienteServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String accion=request.getParameter("accion");  
-        
+            throws ServletException, IOException {        
                 List<Cliente>datos= cli.Listar();
                 
-                for (Cliente dato : datos) { 
-                
+                for (Cliente dato : datos) {                 
                 response.getWriter().print(dato);                
                 }
     }
