@@ -35,7 +35,6 @@ public class ClienteDao implements Crud {
     }
     public List BuscarCliente(String rut, String dv){
         ArrayList clie=new ArrayList();
-        String Salida;
         try{
         Connection conect = Conexion.getConexion();
         String query = "Select * from Cliente where runCliente=? and digitoVerif=?" ;
@@ -61,8 +60,20 @@ public class ClienteDao implements Crud {
     }
 
     @Override
-    public Cliente ListarRut(String rut) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String Eliminar(String rut, String dv) {
+        String Mensaje="";
+        Cliente cli=new Cliente();
+        try {
+        Connection conect = Conexion.getConexion();
+        String query = "delete from Cliente where runCliente=? and digitoVerif=?" ;
+        PreparedStatement busc=conect.prepareStatement(query);
+        busc.setString(1, rut);  
+        busc.setString(2,dv);
+        ResultSet rs = busc.executeQuery();
+        } catch (Exception e) {
+        }
+        
+        return null;
     }
     
 }

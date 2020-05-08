@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface Crud {
     public List Listar();
-    public Cliente ListarRut(String rut);    
+    public String  Eliminar(String rut, String dv);
 }

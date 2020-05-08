@@ -7,9 +7,8 @@ package Ferme.Servlet;
 
 import Ferme.com.dao.ClienteDao;
 import Ferme.com.dto.Cliente;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
+import java.io.*;
+import java.util.*;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,8 +22,10 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/api")
 public class ClienteServlet extends HttpServlet {
 
-    ClienteDao cli = new ClienteDao();    
-    Cliente cliente = new Cliente();
+    ClienteDao cli = new ClienteDao();
+    Properties prop=new Properties();
+             
+     
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -42,7 +43,7 @@ public class ClienteServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ClienteServlet</title>");            
+            out.println("<title>Servlet ClienteServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet ClienteServlet at " + request.getContextPath() + "</h1>");
@@ -62,13 +63,40 @@ public class ClienteServlet extends HttpServlet {
      */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-            String Rut = request.getParameter("rut");
-            String dv  = request.getParameter("dv");
-            List<Cliente>datos= cli.BuscarCliente(Rut,dv);
-            for (Cliente clientes :datos) {            
-            response.getWriter().print(clientes);
-            };            
+            throws ServletException, IOException {        
+        try {         
+            FileReader read= new FileReader("C:\\Users\\wwwvi\\OneDrive\\Documentos\\NetBeansProjects\\FermeService\\Data.properties");
+            prop.load(read);
+        } catch (IOException e) {
+             System.out.println(""+e.getMessage());
+        }  
+        String rut = request.getParameter("rut");
+        String dv = request.getParameter("dv");
+        String opcion = request.getParameter("opc");
+        String token = request.getParameter("token");
+        String tokenProd = prop.getProperty("token.prop");
+        if (tokenProd.equals(token)) {
+            List<Cliente> datos;
+            switch (opcion) {
+
+                case "1":
+                    datos = cli.Listar();
+                    for (Cliente dato : datos) {
+                    response.getWriter().print(dato);
+                    }
+                    break;
+                case "2":
+                   datos = cli.BuscarCliente(rut, dv);
+                    for (Cliente clientes : datos) {
+                        response.getWriter().print(clientes);
+                    };
+                    break;
+                case "3":
+//                    break;
+                case "4":
+                    break;
+            }
+        }
     }
 
     /**
@@ -82,11 +110,7 @@ public class ClienteServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {        
-                List<Cliente>datos= cli.Listar();
-                
-                for (Cliente dato : datos) {                 
-                response.getWriter().print(dato);                
-                }
+        
     }
 
     /**
