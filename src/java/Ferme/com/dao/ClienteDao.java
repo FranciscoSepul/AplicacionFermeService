@@ -15,7 +15,7 @@ public class ClienteDao implements Crud {
         
         ArrayList list = new ArrayList();
         String query="Select * from Cliente";
-        try(PreparedStatement busc=Conexion.getConexion().prepareStatement("Select * from Cliente")) {
+        try(PreparedStatement busc=Conexion.getConexion().prepareStatement(query)) {
             ResultSet rs=busc.executeQuery();           
             while(rs.next()){
             Cliente cli = new Cliente();
@@ -53,27 +53,52 @@ public class ClienteDao implements Crud {
                cli.setDigitoVerif(rs.getString("digitoVerif"));
                clie.add(cli); 
             }         
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println("Error al buscar"+e.getMessage());
         }
         return clie;
     }
 
     @Override
-    public String Eliminar(String rut, String dv) {
-        String Mensaje="";
-        Cliente cli=new Cliente();
+    public boolean desabilitar(String rut,String dv) {
         try {
         Connection conect = Conexion.getConexion();
-        String query = "delete from Cliente where runCliente=? and digitoVerif=?" ;
+        String query = "Update cliente set estado =0 where runcliente =?" ;
         PreparedStatement busc=conect.prepareStatement(query);
-        busc.setString(1, rut);  
-        busc.setString(2,dv);
-        ResultSet rs = busc.executeQuery();
-        } catch (Exception e) {
-        }
+        busc.setString(1, rut); 
         
-        return null;
+        if(busc.executeUpdate()>0)
+            return true;        
+        
+        } catch (SQLException e) {
+            System.out.println("error al eliminar"+e.getMessage());
+        }        
+        return false;
+    }
+
+    
+    public boolean actualizar(String rut, String dv,String direccion,String correo,String contrasena,String nombre,String apellido) {
+        
+        try {
+        Connection conect = Conexion.getConexion();
+        String query = "Update cliente set direccion = ? where runcliente =? and digitoVerif=?" ;
+        PreparedStatement busc=conect.prepareStatement(query);
+        
+        busc.setString(1,direccion);
+        busc.setString(2,correo); 
+        busc.setString(3,contrasena);
+        busc.setString(4,nombre);
+        busc.setString(5,apellido);
+        busc.setString(6,rut);
+        busc.setString(7,dv);        
+        
+        if(busc.executeUpdate()>0) 
+            return false;  
+        
+        } catch (SQLException e) {
+            System.out.println("error al eliminar"+e.getMessage());
+        }        
+        return true;
     }
     
 }

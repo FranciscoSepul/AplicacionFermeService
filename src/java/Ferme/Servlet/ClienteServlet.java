@@ -75,8 +75,11 @@ public class ClienteServlet extends HttpServlet {
         String opcion = request.getParameter("opc");
         String token = request.getParameter("token");
         String tokenProd = prop.getProperty("token.prop");
-        if (tokenProd.equals(token)) {
+        String mensaje;
+        boolean respu;
             List<Cliente> datos;
+        if (tokenProd.equals(token)) {
+            
             switch (opcion) {
 
                 case "1":
@@ -92,8 +95,19 @@ public class ClienteServlet extends HttpServlet {
                     };
                     break;
                 case "3":
+                    respu=cli.desabilitar(rut,dv);  
+                    mensaje = (respu == false) ?  "Error" : "exito";                    
+                    response.getWriter().print(mensaje);
 //                    break;
                 case "4":
+                    String direccion = request.getParameter("direccion"),
+                    correo = request.getParameter("correo"),
+                    contrasena = request.getParameter("contrasena"),
+                    nombre = request.getParameter("nombre"),
+                    apellido = request.getParameter("apellido");
+                    respu=cli.actualizar(rut,dv,direccion,correo,contrasena,nombre,apellido);
+                    mensaje=(respu == false)?"Error":"exito";
+                    response.getWriter().print(mensaje);
                     break;
             }
         }
