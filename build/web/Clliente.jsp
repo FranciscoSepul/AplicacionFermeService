@@ -17,8 +17,9 @@
     <center>
         <div>
             <h3>datos</h3>
-            <form action="ClienteServlet" method="POST">
-                <input type="submit" name="accion" value="Listar" />
+            <form action="ClienteServlet" method="GET">
+                <input type="submit" name="opc" value="1" />
+                <input type="submit" name="token" value="Mr.R0b0t4A11">
             </form>
         </div>
         <div>

@@ -110,6 +110,10 @@ public class ClienteServlet extends HttpServlet {
                     response.getWriter().print(mensaje);
                     break;
             }
+        }else
+        {
+            mensaje="Error  no se pudo entrar al if";
+            response.getWriter().print(mensaje);
         }
     }
 

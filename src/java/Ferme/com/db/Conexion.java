@@ -11,7 +11,8 @@ public class Conexion {
            String driverUrl="jdbc:oracle:thin:@localhost:1521:XE";
            Class.forName(driverClassName);
            connection = DriverManager.getConnection(driverUrl, "F","oracle");
-        }catch (ClassNotFoundException | SQLException e) {
+        }catch (Exception e) {
+            e.printStackTrace();
         }
         return connection;
     }
