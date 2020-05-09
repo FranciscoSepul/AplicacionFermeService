@@ -3,22 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/wwwvi/OneDrive/Documentos/NetBeansProjects/FermeService/src/java/Ferme/com/dao/Perfil.java</file>
-            <file>file:/C:/Users/wwwvi/OneDrive/Documentos/NetBeansProjects/FermeService/src/java/Ferme/com/dto/Cliente.java</file>
-            <file>file:/C:/Users/wwwvi/OneDrive/Documentos/NetBeansProjects/FermeService/src/java/Ferme/com/dao/Retiro.java</file>
-            <file>file:/C:/Users/wwwvi/OneDrive/Documentos/NetBeansProjects/FermeService/src/java/Ferme/com/db/Conexion.java</file>
-            <file>file:/C:/Users/wwwvi/OneDrive/Documentos/NetBeansProjects/FermeService/src/java/Ferme/com/dao/Empleado.java</file>
-            <file>file:/C:/Users/wwwvi/OneDrive/Documentos/NetBeansProjects/FermeService/src/java/Ferme/com/dao/OrdenesCompra.java</file>
-            <file>file:/C:/Users/wwwvi/OneDrive/Documentos/NetBeansProjects/FermeService/src/java/Ferme/com/dao/Producto.java</file>
-            <file>file:/C:/Users/wwwvi/OneDrive/Documentos/NetBeansProjects/FermeService/src/java/Ferme/com/dao/Documentos.java</file>
-            <file>file:/C:/Users/wwwvi/OneDrive/Documentos/NetBeansProjects/FermeService/src/java/Ferme/com/dao/DetalleVenta.java</file>
             <file>file:/C:/Users/wwwvi/OneDrive/Documentos/NetBeansProjects/FermeService/src/java/Ferme/Servlet/ClienteServlet.java</file>
-            <file>file:/C:/Users/wwwvi/OneDrive/Documentos/NetBeansProjects/FermeService/src/java/Ferme/com/dao/Crud.java</file>
-            <file>file:/C:/Users/wwwvi/OneDrive/Documentos/NetBeansProjects/FermeService/src/java/Ferme/com/dao/Sucursal.java</file>
-            <file>file:/C:/Users/wwwvi/OneDrive/Documentos/NetBeansProjects/FermeService/src/java/Ferme/com/dao/Proveedor.java</file>
-            <file>file:/C:/Users/wwwvi/OneDrive/Documentos/NetBeansProjects/FermeService/nbproject/build-impl.xml~</file>
-            <file>file:/C:/Users/wwwvi/OneDrive/Documentos/NetBeansProjects/FermeService/src/java/Ferme/com/dao/ClienteDao.java</file>
-            <file>file:/C:/Users/wwwvi/OneDrive/Documentos/NetBeansProjects/FermeService/src/java/Ferme/com/dao/TipoProducto.java</file>
+            <file>file:/C:/Users/wwwvi/OneDrive/Documentos/NetBeansProjects/FermeService/web/index.html</file>
+            <file>file:/C:/Users/wwwvi/OneDrive/Documentos/NetBeansProjects/FermeService/web/Clliente.jsp</file>
         </group>
     </open-files>
 </project-private>

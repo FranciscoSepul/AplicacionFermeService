@@ -65,7 +65,7 @@ public class ClienteServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {        
         try {         
-            FileReader read= new FileReader("C:\\Users\\wwwvi\\OneDrive\\Documentos\\NetBeansProjects\\FermeService\\Data.properties");
+            FileReader read= new FileReader("C:\\Desarrollo\\FermeService\\Data.properties");
             prop.load(read);
         } catch (IOException e) {
              System.out.println(""+e.getMessage());
