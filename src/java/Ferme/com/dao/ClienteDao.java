@@ -27,7 +27,8 @@ public class ClienteDao implements Crud {
             cli.setRunCliente(rs.getString("runCliente"));
             cli.setDigitoVerif(rs.getString("digitoVerif"));
             list.add(cli);
-            }
+            }            
+            
         } catch (Exception e) {
             System.out.println("error al listar" + e.getMessage());
         }

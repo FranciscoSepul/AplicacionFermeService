@@ -86,6 +86,7 @@ public class ClienteServlet extends HttpServlet {
                     datos = cli.Listar();
                     for (Cliente dato : datos) {
                     response.getWriter().print(dato);
+                    request.setAttribute("datos",datos);
                     }
                     break;
                 case "2":
@@ -98,7 +99,7 @@ public class ClienteServlet extends HttpServlet {
                     respu=cli.desabilitar(rut,dv);  
                     mensaje = (respu == false) ?  "Error" : "exito";                    
                     response.getWriter().print(mensaje);
-//                    break;
+                    break;
                 case "4":
                     String direccion = request.getParameter("direccion"),
                     correo = request.getParameter("correo"),
@@ -127,7 +128,15 @@ public class ClienteServlet extends HttpServlet {
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {        
+            throws ServletException, IOException {  
+        
+                List<Cliente>datos= cli.Listar();
+
+                for (Cliente dato : datos) { 
+
+                response.getWriter().print(dato); 
+                request.setAttribute("dato", dato);
+                }
         
     }
 
